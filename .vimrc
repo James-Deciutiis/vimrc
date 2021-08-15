@@ -17,6 +17,9 @@ set softtabstop=4
 set expandtab
 set noshowmode
 
+" Turns off highlighting until next search
+nnoremap <C-s> :noh <CR>
+
 " Color configurations
 set background=dark
 let g:everforest_background = 'hard'
