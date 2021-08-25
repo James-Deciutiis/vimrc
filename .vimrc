@@ -19,8 +19,17 @@ set expandtab
 set noshowmode
 set encoding=UTF-8
 
+" Term in Vim settings
+nnoremap <C-t> :term <CR>
+noremap <Esc>[1;5A <C-w> :h <CR>
+set splitbelow
+set termwinsize=10*208
+
 " Turns off highlighting until next search
-nnoremap <C-s> :noh <CR>
+nnoremap <C-c> :noh <CR>
+
+" Save on control - s
+nnoremap <C-s> :w <CR>
 
 " Color configurations
 set background=dark
