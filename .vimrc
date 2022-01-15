@@ -2,19 +2,26 @@
 call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'ap/vim-css-color' 
-    Plug 'vim-airline/vim-airline'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'liuchengxu/space-vim-theme'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'vim-airline/vim-airline-themes'
     Plug 'ajmwagar/vim-deus'
     Plug 'sainnhe/everforest'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'morhetz/gruvbox'
+    Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html', 'lua'] }
 call plug#end()
 
 " General vim configurations
 set number
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set laststatus=2
+set tabstop=2
+set shiftwidth=2
+set cursorline
+set softtabstop=2
 set expandtab
 set noshowmode
 set encoding=UTF-8
@@ -23,7 +30,7 @@ set encoding=UTF-8
 nnoremap <C-t> :term <CR>
 noremap <Esc>[1;5A <C-w> :h <CR>
 set splitbelow
-set termwinsize=10*208
+set termwinsize=10*
 
 " Turns off highlighting until next search
 nnoremap <C-c> :noh <CR>
@@ -32,9 +39,14 @@ nnoremap <C-c> :noh <CR>
 nnoremap <C-s> :w <CR>
 
 " Color configurations
+" forest-bridge theme
+" set background=dark
+" let g:everforest_background = 'hard'
+" colorscheme everforest 
+
 set background=dark
-let g:everforest_background = 'hard'
-colorscheme everforest 
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme space_vim_theme
 
 " Coc linter configurations
 let g:coc_global_extensions = [
@@ -45,6 +57,7 @@ let g:coc_global_extensions = [
 \   'coc-prettier',
 \   'coc-json',
 \]
+
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -67,4 +80,22 @@ autocmd VimEnter * NERDTree | wincmd p
 
 " close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Airline settings
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#formatter = 'jsformatter'
+let g:airline_branch = ''
+
+let g:airline_theme = 'solarized'
+"`let g:airline_symbols.readonly = ''
+"`let g:airline_symbols.linenr = ''
+
+packloadall
 
