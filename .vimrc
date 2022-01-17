@@ -1,4 +1,31 @@
-" Plugins
+"  _______________________________________
+" |\ ___________________________________ /|
+" | | _                               _ | |
+" | |(+)        _           _        (+)| |
+" | | ~      _--/           \--_      ~ | |
+" | |       /  /             \  \       | |
+" | |      /  |               |  \      | |
+" | |     /   |               |   \     | |
+" | |     |   |    _______    |   |     | |
+" | |     |   |    \     /    |   |     | |
+" | |     \    \_   |   |   _/    /     | |
+" | |      \     -__|   |__-     /      | |
+" | |       \_                 _/       | |
+" | |         --__         __--         | |
+" | |             --|   |--             | |
+" | |               |   |               | |
+" | |                | |                | |
+" | |                 |                 | |
+" | |               V I M               | |
+" | |   I S   G O O D   F O R   Y O U   | |
+" | | _                               _ | |
+" | |(+)                             (+)| |
+" | | ~                               ~ | |
+" |/ ----------------------------------- \|
+"  ---------------------------------------
+"          James-Deciutiis/vimrc
+
+" Plugins "
 call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'ap/vim-css-color' 
@@ -26,19 +53,27 @@ set expandtab
 set noshowmode
 set encoding=UTF-8
 
+" Splits settings
+set splitbelow splitright
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-l>l
+
 " Term in Vim settings
 nnoremap <C-t> :term <CR>
 noremap <Esc>[1;5A <C-w> :h <CR>
 set splitbelow
 set termwinsize=10*
 
-" Turns off highlighting until next search
+" Remove all current highlighting
 nnoremap <C-c> :noh <CR>
 
 " Save on control - s
 nnoremap <C-s> :w <CR>
 
 " Color configurations
+
 " forest-bridge theme
 " set background=dark
 " let g:everforest_background = 'hard'
@@ -58,8 +93,6 @@ let g:coc_global_extensions = [
 \   'coc-json',
 \]
 
-
-" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
