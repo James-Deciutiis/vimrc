@@ -60,6 +60,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Resizing splits
+nnoremap <silent> <C-Left> :vertical resize +5 <CR>
+nnoremap <silent> <C-Right> :vertical resize -5 <CR>
+nnoremap <silent> <C-Up>  :resize +5 <CR>
+nnoremap <silent> <C-Down>  :resize -5 <CR>
+
 " Term in Vim settings
 nnoremap <C-t> :term <CR>
 noremap <Esc>[1;5A <C-w> :h <CR>
@@ -70,7 +76,9 @@ set termwinsize=10*
 nnoremap <C-c> :noh <CR>
 
 " Save on control - s
-nnoremap <C-s> :w <CR>
+nnoremap <C-s> :w :Prettier <CR>
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 
 " Color configurations
 
